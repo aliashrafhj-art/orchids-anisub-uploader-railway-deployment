@@ -1,14 +1,6 @@
 FROM python:3.11-slim
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    ffmpeg \
-    fonts-noto \
-    fonts-noto-cjk \
-    fontconfig \
-    && fc-cache -fv \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends     ffmpeg     fonts-noto     fontconfig \ && fc-cache -fv \ && apt-get clean \ && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
@@ -19,6 +11,6 @@ COPY . .
 
 RUN mkdir -p /tmp/anisub_uploads /tmp/anisub_outputs
 
-EXPOSE 8080
+EXPOSE 10000
 
-CMD gunicorn --timeout 3600 --workers 1 --bind 0.0.0.0:${PORT:-8080} app:app
+CMD ["sh", "-c", "gunicorn --timeout 3600 --workers 1 --bind 0.0.0.0:${PORT:-10000} app:app"]
