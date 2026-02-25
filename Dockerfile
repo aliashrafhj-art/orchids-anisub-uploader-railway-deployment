@@ -19,8 +19,6 @@ COPY . .
 
 RUN mkdir -p /tmp/anisub_uploads /tmp/anisub_outputs
 
-EXPOSE 5000
+EXPOSE 8080
 
-ENV PORT=5000
-
-CMD gunicorn --timeout 3600 --workers 1 --bind 0.0.0.0:$PORT app:app
+CMD gunicorn --timeout 3600 --workers 1 --bind 0.0.0.0:${PORT:-8080} app:app
