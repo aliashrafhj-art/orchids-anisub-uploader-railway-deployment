@@ -10,3 +10,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 RUN mkdir -p /tmp/anisub_uploads /tmp/anisub_outputs
+
+CMD ["sh", "-c", "gunicorn --timeout 3600 --workers 1 --bind 0.0.0.0:8080 app:app"]
