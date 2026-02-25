@@ -1,0 +1,6 @@
+{
+  "projectId": "2b2664fe-d43c-4a2a-986a-ebddd305e46c",
+  "createdAt": 1772026682668,
+  "startupCommands": ["pip install -r requirements.txt; python app.py"],
+  "templateId": "any"
+}
