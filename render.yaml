@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: anisub-uploader
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+    disk:
+      name: tmp-storage
+      mountPath: /tmp
+      sizeGB: 10
