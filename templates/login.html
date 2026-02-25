@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AniSub Uploader — Login</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0d0d0d;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .login-box {
+    background: #1a1a2e;
+    border: 1px solid #2a2a4a;
+    border-radius: 16px;
+    padding: 40px 32px;
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+  }
+  .logo { font-size: 2.5rem; margin-bottom: 8px; }
+  h1 { font-size: 1.4rem; color: #7c6cf0; margin-bottom: 24px; }
+  input[type="password"] {
+    width: 100%;
+    padding: 14px 16px;
+    background: #0d0d1a;
+    border: 1px solid #3a3a5a;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 16px;
+    outline: none;
+  }
+  input[type="password"]:focus { border-color: #7c6cf0; }
+  button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #7c6cf0, #5a4fd8);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  button:hover { opacity: 0.9; }
+  .error {
+    background: #3a1a1a;
+    border: 1px solid #7a2a2a;
+    color: #ff8888;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+<div class="login-box">
+  <div class="logo">🎬</div>
+  <h1>AniSub Uploader</h1>
+  {% if error %}
+  <div class="error">{{ error }}</div>
+  {% endif %}
+  <form method="POST">
+    <input type="password" name="password" placeholder="পাসওয়ার্ড দিন..." autofocus>
+    <button type="submit">প্রবেশ করুন</button>
+  </form>
+</div>
+</body>
+</html>
